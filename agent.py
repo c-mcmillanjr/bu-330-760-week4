@@ -43,11 +43,11 @@ def product_lookup(product_name: str) -> str:
 
     product_name_lower = product_name.lower()
 
-    for product in products:
-        if product["name"].lower() == product_name_lower:
-            return f"{product['name']} costs ${product['price']}"
+    for name, price in products.items():
+        if name.lower() == product_name_lower:
+            return f"{name} costs ${price}"
 
-    available_products = [product["name"] for product in products]
+    available_products = list(products.keys())
     return f"Product not found. Available products are: {available_products}"
 
 
